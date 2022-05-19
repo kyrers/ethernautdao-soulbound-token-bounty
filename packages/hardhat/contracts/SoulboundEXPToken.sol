@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 * @notice The token is soulbound and has no supply cap
 * @author kyrers
 */
-contract SoulboundEXPToken is  ERC20, Ownable {
+contract SoulboundEXPToken is ERC20, Ownable {
     /*------------------------------------------------------------
                                  VARIABLES
     --------------------------------------------------------------*/
@@ -62,7 +62,7 @@ contract SoulboundEXPToken is  ERC20, Ownable {
     * @param _to The receiver address
     * @param _amount The amount of EXP tokens to be minted
     */
-    function mint(address _to, uint256 _amount) external override onlyApprovedMinter {
+    function mint(address _to, uint256 _amount) external onlyApprovedMinter {
         _mint(_to, _amount);
     }
 
