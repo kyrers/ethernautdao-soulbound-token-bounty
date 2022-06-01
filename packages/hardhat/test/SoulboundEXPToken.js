@@ -43,24 +43,7 @@ describe("Soulbound EXP Token", function () {
       expect(status).to.be.true;
     });
   });
-
-  describe("### MINT ###", function () {
-    it("Should fail because minter is not approved", async function () {
-      await expect(contract.mint(ethers.constants.AddressZero, 1)).to.be.reverted;
-    });
-
-    it("Should mint 1 token", async function () {
-      const [owner] = await ethers.getSigners();
-
-      await contract.setApprovedMinter(owner.address, true);
-
-      const mintTx = await contract.mint(owner.address, 1);
-      const balance = await contract.balanceOf(owner.address);
-
-      expect(balance).to.equal(1);
-    });
-  });
-
+  
   describe("### MINT ###", function () {
     it("Should fail because minter is not approved", async function () {
       await expect(contract.mint(ethers.constants.AddressZero, 1)).to.be.reverted;
